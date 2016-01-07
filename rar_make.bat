@@ -10,10 +10,10 @@ set DATEANDTIME=%DATESTAMP%_%TIMESTAMP%
 SET RAROUT="C:\Users\adamd.GINGER-IL\Desktop\test\%NAME_OUT%_%DATEANDTIME%.rar"
 :: Path to FILE THAT YOU WANT TO SAVE 
 SET FIELS_TO_SAVE="C:\Users\adamd.GINGER-IL\Desktop\test\*.txt"
-:: Path to FILES FOR DELETE
-SET FIELS_TO_DELETE="C:\Users\adamd.GINGER-IL\Desktop\test"
+
+
 
 :: Rar:
 %RAR%  a -r  %RAROUT% %FIELS_TO_SAVE%
-:: Delete:
-del /s %FIELS_TO_SAVE%
+:: Delete :
+forfiles -p "C:\Logs\TouchBeamBridge" -s -m main.log.* /D -2 /C "cmd /c del @path"
